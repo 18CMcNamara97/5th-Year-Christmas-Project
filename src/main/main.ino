@@ -28,38 +28,44 @@ void setup() {
 }
 
 // | Functions
-static char[] flash_led() {
-  char[] str = "-... .. .-. -.. / .. -. ... .. -.. .";
-  int i;
-  for (i = 0; i < strlen(str); i++){
-    if (str[i] == '.'){
+static int get_morse_time(char[] str){
+  if (str == '.'){
       digitalWrite(ledPin, HIGH);
       delay(morse_time * 1)
       digitalWrite(ledPin, LOW)
     }
-    else if (str[i] == '-'){
+    else if (str == '-'){
       digitalWrite(ledPin, HIGH);
       delay(morse_time * 3)
       digitalWrite(ledPin, LOW)
     }
-    else if (str[i] == ' '){
+    else if (str == ' '){
       digitalWrite(ledPin, HIGH);
       delay(morse_time * 7)
       digitalWrite(ledPin, LOW)
     }
-        else if (str[i] == '/'){
+        else if (str == '/'){
       digitalWrite(ledPin, HIGH);
       delay(morse_time * 7)
       digitalWrite(ledPin, LOW)
     }
-    delay(5000) // Wait 5 seconds between messages
+}
+
+static void flash_led() {
+  int i;
+  char[] str = "-... .. .-. -.. / .. -. ... .. -.. ."; 
+  
+  for (i = 0; i < strlen(str); i++){
+    digitalWrite(ledPin, HIGH)
+    delay(get_morse_time(str[i]))
+    digitalWrite(ledPin, LOW)
   }
-  return str
+  delay(5000) // Wait 5 seconds between messages
 }
 
 // | Main Loop
 void loop() {
-  Serial.print("Pin A0: " + analgRead(debugAnalogPin)); // Checking the debug pin for errors
+  Serial.print("Debug-Pin A0: " + analogRead(debugAnalogPin)); // Checking the debug pin for errors
   if (bird_inside == true){
     flash_led()
   }
