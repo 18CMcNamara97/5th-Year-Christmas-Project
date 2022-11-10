@@ -16,7 +16,7 @@ int debugAnalogPin = A1; // Setting a debug pin for testing
 int ledPin = 12; // Setting an ledPin for output
 int pirPin = 9; // Setting a PIR pin for input
 
-int morse_time = 65 // Time in miliseconds for 1 unit
+int morse_time = 65 // Time in miliseconds for 1 morse-unit
 
 // | Variables
 bool bird_inside = false;
@@ -24,7 +24,7 @@ bool bird_inside = false;
 // | Setup
 void setup() {
   Serial.begin(9600); // Opens the Serial Port at 9600bps
-  pinMode(pirPin, INPUT) // Setting the PIR Pins mod to Input
+  pinMode(pirPin, INPUT) // Setting the PIR Pins mode to Input
 }
 
 // | Functions
@@ -54,7 +54,7 @@ static int get_morse_time(char[] str){
 static void flash_led() {
   int i;
   char[] str = "-... .. .-. -.. / .. -. ... .. -.. ."; 
-  
+
   for (i = 0; i < strlen(str); i++){
     digitalWrite(ledPin, HIGH)
     delay(get_morse_time(str[i]))
