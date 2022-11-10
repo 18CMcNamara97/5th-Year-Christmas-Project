@@ -2,7 +2,9 @@
 
 ## Features
 Complete - 🟢
+
 In-Development - 🟠
+
 Planned - 🔴
 
 Check for Bird - 🟠
