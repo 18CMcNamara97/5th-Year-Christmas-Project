@@ -9,7 +9,6 @@ C/C++
 In-Development - 🟠
 Planned - 🔴**
 
-Light Activation - 🟢
-
+Light Activation - 🟢\n
 Check for Bird - 🟠
 
