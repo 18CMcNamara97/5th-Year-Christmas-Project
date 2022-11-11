@@ -24,30 +24,30 @@ bool bird_inside = false;
 // | Setup
 void setup() {
   Serial.begin(9600); // Opens the Serial Port at 9600bps
-  pinMode(pirPin, INPUT) // Setting the PIR Pins mode to Input
+  pinMode(pirPin, INPUT); // Setting the PIR Pins mode to Input
 }
 
 // | Functions
 static int get_morse_time(char[] str){
   if (str == '.'){
       digitalWrite(ledPin, HIGH);
-      delay(morse_time * 1)
-      digitalWrite(ledPin, LOW)
+      delay(morse_time * 1);
+      digitalWrite(ledPin, LOW);
     }
     else if (str == '-'){
       digitalWrite(ledPin, HIGH);
-      delay(morse_time * 3)
-      digitalWrite(ledPin, LOW)
+      delay(morse_time * 3);
+      digitalWrite(ledPin, LOW);
     }
     else if (str == ' '){
       digitalWrite(ledPin, HIGH);
-      delay(morse_time * 7)
-      digitalWrite(ledPin, LOW)
+      delay(morse_time * 7);
+      digitalWrite(ledPin, LOW);
     }
         else if (str == '/'){
       digitalWrite(ledPin, HIGH);
-      delay(morse_time * 7)
-      digitalWrite(ledPin, LOW)
+      delay(morse_time * 7);
+      digitalWrite(ledPin, LOW);
     }
 }
 
@@ -56,17 +56,17 @@ static void flash_led() {
   char[] str = "-... .. .-. -.. / .. -. ... .. -.. ."; 
 
   for (i = 0; i < strlen(str); i++){
-    digitalWrite(ledPin, HIGH)
-    delay(get_morse_time(str[i]))
-    digitalWrite(ledPin, LOW)
-  }
-  delay(5000) // Wait 5 seconds between messages
+    digitalWrite(ledPin, HIGH);
+    delay(get_morse_time(str[i]));
+    digitalWrite(ledPin, LOW);
+  };
+  delay(5000); // Wait 5 seconds between messages
 }
 
 // | Main Loop
 void loop() {
   Serial.print("Debug-Pin A0: " + analogRead(debugAnalogPin)); // Checking the debug pin for errors
   if (bird_inside == true){
-    flash_led()
-  }
+    flash_led();
+  };
 }
