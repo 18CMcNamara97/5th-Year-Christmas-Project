@@ -2,8 +2,7 @@
 
 ## Written by Cian McNamara (18CMcNamara@stn.ie)
 ### Written in 
-C
-C++
+C/C++
 
 ## Features
 **Complete - 🟢
