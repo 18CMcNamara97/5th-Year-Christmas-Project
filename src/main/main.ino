@@ -29,6 +29,7 @@ float pir_status;
 void setup() {
   Serial.begin(9600); // Opens the Serial Port at 9600bps
   pinMode(pirPin, INPUT); // Setting the PIR Pins mode to Input
+  pinMode(ledPin, OUTPUT);
 }
 
 // | Functions
