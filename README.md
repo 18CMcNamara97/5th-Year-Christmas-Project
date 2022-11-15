@@ -10,5 +10,7 @@ In-Development - 🟠
 Planned - 🔴**
 
 Light Activation - 🟢  
-Check for Bird - 🟠
+Check for Bird - 🟢
+Get Board ID - 🟢
+
 
