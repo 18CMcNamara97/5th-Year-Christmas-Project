@@ -18,24 +18,19 @@ int pirPin = A3; // Setting a PIR pin for input
 
 int morse_time = 65; // Time in miliseconds for 1 morse-unit
 
-int board_number = 1;
-
 // | Variables
-int loops = 0;
+int loops = 0; // Total number of loops the circuit has been on for 
 bool bird_inside = false;
-float pir_status;
+float pir_status; // The output of the PIR Sensor
 
 // | Setup
 void setup() {
   Serial.begin(9600); // Opens the Serial Port at 9600bps
   pinMode(pirPin, INPUT); // Setting the PIR Pins mode to Input
-  pinMode(ledPin, OUTPUT);
+  pinMode(ledPin, OUTPUT); // Setting the LED Pins mode to Output
 }
 
 // | Functions
-int getSerialNumber() {
-  return board_number;
-}
 void onPIRChange() {
   if (getPIRInfo() < pir_status) {
     bird_inside = !bird_inside;
